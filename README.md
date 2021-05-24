@@ -3,16 +3,20 @@ Slices takes a 1d array, and returns a 2d array with X number of
 chunks.  Remainder is distributed round-robin, starting with the
 first element. For example:
 
+```ruby
   alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z)
   pp slices(4, alphabet)
-
+```
+```
   ==>[["a", "b", "c", "d", "e", "f", "y"],
       ["g", "h", "i", "j", "k", "l", "z"],
       ["m", "n", "o", "p", "q", "r"],
       ["s", "t", "u", "v", "w", "x"]]
+```
 
 matt.a.feenstra@gmail.com
 -------
+A way to test:
 ```ruby
 random_array_generator = ->{ nums = []; 1..100.times { nums << rand(100000) }; nums  }
 slices(7, random_array_generator.call)
